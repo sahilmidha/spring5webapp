@@ -13,14 +13,15 @@ public class Publisher {
   private String name;
   private String address;
 
-  @OneToMany
-  private Set<Book> books;
+  @OneToMany private Set<Book> books;
 
   public Publisher(String name, String address) {
     this.name = name;
     this.address = address;
     this.books = new HashSet<>();
   }
+
+  public Publisher() {}
 
   public void setName(String name) {
     this.name = name;
