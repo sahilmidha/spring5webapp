@@ -52,7 +52,7 @@ public class Publisher {
     return books;
   }
 
-  public void setbook(Book book) {
+  public void setBook(Book book) {
     this.books.add(book);
   }
 
