@@ -80,9 +80,6 @@ public class Author {
         + '\''
         + ", lastName='"
         + lastName
-        + '\''
-        + ", books="
-        + books
         + '}';
   }
 }
