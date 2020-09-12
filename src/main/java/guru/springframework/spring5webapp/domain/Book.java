@@ -1,6 +1,7 @@
 package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -11,6 +12,8 @@ public class Book {
 
   private String title;
   private String isbn;
+
+  @ManyToOne private Publisher publisher;
 
   @ManyToMany
   @JoinTable(
@@ -27,18 +30,18 @@ public class Book {
     this.id = id;
   }
 
-  public Book(String title, String isbn, Set<Author> authors) {
+  public Book(String title, String isbn) {
     this.title = title;
     this.isbn = isbn;
-    this.authors = authors;
+    this.authors = new HashSet<>();
   }
 
   public Set<Author> getAuthors() {
     return authors;
   }
 
-  public void setAuthors(Set<Author> authors) {
-    this.authors = authors;
+  public void setAuthor(Author author) {
+    this.authors.add(author);
   }
 
   public Book() {}
@@ -57,6 +60,14 @@ public class Book {
 
   public void setIsbn(String isbn) {
     this.isbn = isbn;
+  }
+
+  public Publisher getPublisher() {
+    return publisher;
+  }
+
+  public void setPublisher(Publisher publisher) {
+    this.publisher = publisher;
   }
 
   @Override
